@@ -6,15 +6,16 @@ import 'package:flutter_app/utils/color_utils.dart';
 
 class AddProject extends StatefulWidget {
   @override
-  _AddProjectState createState() => new _AddProjectState();
+  AddProjectState createState() => new AddProjectState();
 }
 
-class _AddProjectState extends State<AddProject> {
+// _ removed to make it not private
+class AddProjectState extends State<AddProject> {
   ColorPalette currentSelectedPalette =
       new ColorPalette("Grey", Colors.grey.value);
 
   final expansionTile = new GlobalKey<CollapsibleExpansionTileState>();
-  GlobalKey<FormState> _formState = new GlobalKey<FormState>();
+  GlobalKey<FormState> formState = new GlobalKey<FormState>();
 
   String projectName = "";
 
@@ -36,8 +37,8 @@ class _AddProjectState extends State<AddProject> {
             color: Colors.white,
           ),
           onPressed: () {
-            if (_formState.currentState.validate()) {
-              _formState.currentState.save();
+            if (formState.currentState.validate()) {
+              formState.currentState.save();
               var project = Project.create(
                   projectName,
                   currentSelectedPalette.colorValue,
@@ -64,7 +65,7 @@ class _AddProjectState extends State<AddProject> {
                 key: Key('add-project-field'),
               ),
             ),
-            key: _formState,
+            key: formState,
           ),
           new Padding(
             padding: const EdgeInsets.only(top: 4.0),
