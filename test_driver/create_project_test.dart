@@ -38,9 +38,9 @@ void main() {
       await driver.tap(addProjectButton); //again fab only with Key, due to driver finder is limited
 
       //open drawer and check the project
-      await driver.tap(drawerOpenButton);
+//      await driver.tap(drawerOpenButton); <- don't need to open again due to changes for 2nd test
       await driver.waitFor(projectsText);
-      await driver.tap(projectsText);
+//      await driver.tap(addProjectKey);
       //expect(find.text(projectName), ftest.findsOneWidget); <- cause error
       await driver.waitFor(find.text(projectName));
   });
