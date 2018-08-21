@@ -10,20 +10,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_app/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Create project test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(new MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.tap(find.byIcon(Icons.menu));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Projects'), findsWidgets);
+
+//    await tester.tap(find.text('Projects')); // doesn't open expandable tile
+    await tester.tap(find.byKey(Key('projects'))); // doesn't open expandable tile
+    await tester.pump();
+
+    //all next steps are useless due to there're no visible button "Add project"
+    //expect(find.text('Add Project'), findsWidgets); //doesn't work
+//    await tester.tap(find.byKey(Key('add-project')));
+//    await tester.pump();
   });
 }

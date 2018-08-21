@@ -30,6 +30,7 @@ class _AddProjectState extends State<AddProject> {
         title: new Text("Add Project"),
       ),
       floatingActionButton: new FloatingActionButton(
+          key: Key('add-project-button'),
           child: new Icon(
             Icons.send,
             color: Colors.white,
@@ -60,6 +61,7 @@ class _AddProjectState extends State<AddProject> {
                 onSaved: (value) {
                   projectName = value;
                 },
+                key: Key('add-project-field'),
               ),
             ),
             key: _formState,

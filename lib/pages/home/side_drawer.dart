@@ -135,6 +135,7 @@ class _SideDrawerState extends State<SideDrawer> {
 
   ExpansionTile buildExpansionTile(IconData icon, String projectName) {
     return new ExpansionTile(
+      key: Key(projectName == "Projects" ? 'projects' : 'labels'),
       leading: new Icon(icon),
       title: new Text(projectName,
           style: new TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold)),
@@ -152,6 +153,7 @@ class _SideDrawerState extends State<SideDrawer> {
           },
         )));
     projectWidgetList.add(new ListTile(
+      key: Key('add-project'),
       leading: new Icon(Icons.add),
       title: new Text("Add Project"),
       onTap: () async {
