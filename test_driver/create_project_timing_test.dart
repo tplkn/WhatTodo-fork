@@ -40,8 +40,11 @@ void main() {
         iteration++;
       }
 
-      print('$iteration iterations during $duration ms');
-      print('average ${(duration/iteration).toStringAsFixed(2)} ms per test');
+      final int end = DateTime.now().millisecondsSinceEpoch;
+      final int finalDuration = end - start;
+
+      print('$iteration iterations during $finalDuration ms');
+      print('average ${(finalDuration/iteration).toStringAsFixed(2)} ms per test');
 
   });
 
