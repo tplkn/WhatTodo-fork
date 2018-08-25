@@ -44,7 +44,7 @@ class AddProjectState extends State<AddProject> {
                   currentSelectedPalette.colorValue,
                   currentSelectedPalette.colorName);
               AppDatabase.get().updateProject(project).then((value) {
-                Navigator.pop(context, true);
+                Navigator.pop(context, project);
               });
             }
           }),

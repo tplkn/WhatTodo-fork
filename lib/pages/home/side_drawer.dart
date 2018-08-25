@@ -158,12 +158,12 @@ class _SideDrawerState extends State<SideDrawer> {
       title: new Text("Add Project"),
       onTap: () async {
 //        Navigator.pop(context); <- requires for 2nd test
-        bool isDataChanged = await Navigator.push(
+        Project isDataChanged = await Navigator.push(
             context,
-            new MaterialPageRoute<bool>(
+            new MaterialPageRoute<Project>(
                 builder: (context) => new AddProject()));
 
-        if (isDataChanged) {
+        if (isDataChanged != null) {
           updateProjects();
         }
       },
